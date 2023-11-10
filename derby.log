@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Fri Nov 10 13:49:10 CET 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-018b-b947-7586-0000033a75a8 
+Fri Nov 10 15:00:56 CET 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-018b-b989-27e1-0000035afe30 
 on database directory /home/student/NetBeansProjects/JavaEE_Lab1/DB/ludzie with class loader sun.misc.Launcher$AppClassLoader@7f31245a 
 Loaded from file:/home/student/NetBeansProjects/JavaEE_Lab1/lib/JAVADB_DRIVER_LABEL/derby.jar
 java.vendor=Oracle Corporation

@@ -17,6 +17,7 @@ public class DBOkno extends javax.swing.JFrame {
 
     private boolean connect;
     private String out;
+    private NewJDialog dialog;
 
     /**
      * Creates new form DBOkno
@@ -34,29 +35,19 @@ public class DBOkno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("--");
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,15 +55,14 @@ public class DBOkno extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jButton1.setText("Połącz");
@@ -127,12 +117,12 @@ public class DBOkno extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
                 .addComponent(jButton4)
                 .addContainerGap())
         );
@@ -150,9 +140,9 @@ public class DBOkno extends javax.swing.JFrame {
             Logger.getLogger(DBOkno.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (connect) {
-            jTextField1.setText("Połączono");
+            jTextArea1.setText("Połączono");
         } else {
-            jTextField1.setText("Nie połączono");
+            jTextArea1.setText("Nie połączono");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -163,9 +153,9 @@ public class DBOkno extends javax.swing.JFrame {
             Logger.getLogger(DBOkno.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (connect) {
-            jTextField1.setText("Rozłączono");
+            jTextArea1.setText("Rozłączono");
         } else {
-            jTextField1.setText("Nie rozłączono");
+            jTextArea1.setText("Nie rozłączono");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -173,10 +163,10 @@ public class DBOkno extends javax.swing.JFrame {
         try {
             if (connect) {
                 out = DBManager.getData();
-                jTextField1.removeAll();
-                jTextField1.setText(out);
+                jTextArea1.removeAll();
+                jTextArea1.setText(out);
             } else {
-                jTextField1.setText("Nie połączono");
+                jTextArea1.setText("Nie połączono");
             }
         } catch (SQLException ex) {
             Logger.getLogger(DBOkno.class.getName()).log(Level.SEVERE, null, ex);
@@ -185,6 +175,13 @@ public class DBOkno extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
+            if (connect) {
+                dialog = new NewJDialog(DBOkno.this, true);
+                dialog.setVisible(true);
+                
+            } else {
+                jTextArea1.setText("Nie można dodać danych bez połączenia z bazą");
+            }
     }//GEN-LAST:event_jButton4ActionPerformed
 
 /**
@@ -247,8 +244,8 @@ public static void main(String args[]) {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

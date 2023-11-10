@@ -11,6 +11,7 @@ public final class DBManager {
     public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
     public static final String JDBC_URL = "jdbc:derby:./DB/ludzie";
     public static final String QUERY = "select * from app.Employees";
+    public static final String SAVE = "INSERT INTO app.Employees (Id, FirstName, LastName) VALUES (6, '";
     private static java.sql.Connection conn;
 
     private DBManager() {
@@ -56,4 +57,11 @@ public final class DBManager {
         }
         return wiersz;
     }
+    
+    public static void SaveData(String imie,String nazwisko) throws SQLException {
+        Statement stat = conn.createStatement();
+        String com = imie + "'" + ", '" + nazwisko +"')";
+        stat.executeUpdate(SAVE + com);
+    }
+    
 }
