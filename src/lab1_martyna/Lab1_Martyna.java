@@ -15,7 +15,7 @@ public class Lab1_Martyna {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO TEST
+        // TODO TEST 2
     }
     
 }
